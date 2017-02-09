@@ -13,6 +13,7 @@ def home(request):
 
 
 def add_new_url(request):
+    """
     if request.method == "POST":
         my_form=UrlShortForm(request.POST)
         if my_form.is_valid():
@@ -20,8 +21,14 @@ def add_new_url(request):
             return redirect(home)
     else:
         my_form=UrlShortForm()
+    """
 
-    return render(request,'bitly__clone_app/new.html',{'my_form':my_form})
+    form=UrlShortForm(request.POST or None)
+
+
+
+
+    return render(request,'bitly__clone_app/new.html',locals())
 
 
 def redirection(request,url_code):

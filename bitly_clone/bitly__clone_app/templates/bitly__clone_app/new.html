@@ -1,10 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'bitly__clone_app/base.html'%}
+<title>
+        {% block title %}
+        add new url
+        {% endblock %}
+</title>
 
-</body>
-</html>
+
+{% block content %}
+
+
+
+<div class="view hm-red">
+<div class="full-bg-img flex-center">
+<div class="container">
+    <!--Form with header-->
+<div class="card theform">
+    <div class="card-block">
+        <!--Header-->
+        <div class="form-header red-gradient myheader">
+            <h3><i class="fa fa-user"></i> Add new Url:</h3>
+        </div>
+<form method="post" action="{% url 'add new url' %}" enctype="application/x-www-form-urlencoded">
+    {% csrf_token %}
+        <!--Body-->
+        <div class="md-form">
+            <i class="fa fa-link prefix"></i>
+            <input type="text" id="form3" class="form-control" name="the_url">
+            <label for="form3">Your Url</label>
+        </div>
+        <div class="md-form">
+            <i class="fa fa-user prefix"></i>
+            <input type="text" id="form2" class="form-control" name="the_nickname">
+            <label for="form2">Your nickname</label>
+        </div>
+
+      <div class="text-center">
+            <button class="btn btn-danger">add this url</button>
+      </div>
+      </form>
+    </div>
+</div>
+<!--/Form with header-->
+</div>
+</div>
+</div>
+{% endblock %}

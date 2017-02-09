@@ -18,7 +18,7 @@
                     <p class="text-white wow fadeInLeft" style="font-size: 50px" data-wow-delay="0.4s">THE LINK KNOWS ALL. SO CAN YOU.</p>
                     <p class="text-white wow fadeInLeft"style="font-size: 20px" data-wow-delay="0.4s">Measure your links with Bitly, the world's leading link management platform.</p>
                       <hr class="hr-light">
-                    <a class="btn btn-danger btn-lg wow fadeInRight" data-wow-delay="0.7s">Short my URL</a>
+                    <a class="btn btn-danger btn-lg wow fadeInRight" data-wow-delay="0.7s" href="{% url 'add new url' %}">Short my URL</a>
                 </div>
                 </div>
             </div>
@@ -30,22 +30,41 @@
 
     </div>
     <!--/.Mask-->
-           <table class="table table-success">
-          <thead class="blue white-text">
-            <tr>
-              <th>Number</th>
-              <th>Url</th>
-              <th>url shorten</th>
-              <th>number of access</th>
+           <table class="table table-success ">
+          <thead class="blue white-text ">
+            <tr >
+              <th class="text-center" >Url</th>
+              <th class="text-center" >url shorten</th>
+              <th class="text-center" >number of access</th>
             </tr>
           </thead>
           <tbody>
+          {% for url in urls_data %}
             <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
+              <td>
+                   <div class="card default-color text-center z-depth-2">
+                     <div class="card-block">
+                        <a class="white-text"   href="{{ url.user_url }}">{{ url.user_url }}</a>
+                     </div>
+                   </div>
+              </td>
+              <td>
+                  <div class="card primary-color text-center z-depth-2">
+                     <div class="card-block">
+                  <a class="white-text" href="http://{{ request.get_host }}{% url 'redirection view' url.url_code %}">{{ request.get_host }}{% url 'redirection view' url.url_code %}</a>
+                    </div>
+                 </div>
+              </td>
+
+                <td>
+                    <div class="card danger-color text-center z-depth-2">
+                     <div class="card-block white-text">
+                       {{ url.nb_access }}
+                      </div>
+                 </div>
+                </td>
             </tr>
+          {% endfor %}
           </tbody>
         </table>
     </div>

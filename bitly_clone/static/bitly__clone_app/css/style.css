@@ -3,7 +3,7 @@ html,
 body,
 header,
 .view {
-    height: 90%;
+    height: 100%;
 }
 /* Navigation*/
 
@@ -53,3 +53,21 @@ header,
         max-height: 400px;
     }
 }
+
+.myheader {
+    color: #fff!important;
+    text-align: center!important;
+    margin-top: -50px!important;
+    margin-bottom: 3rem!important;
+    padding: 1rem!important;
+    -webkit-border-radius: 2px!important;
+    -moz-border-radius: 2px!important;
+    -ms-border-radius: 2px!important;
+    -o-border-radius: 2px!important;
+    border-radius: 2px!important;
+}
+.theform{
+  margin: 100px!important;
+
+}
+
