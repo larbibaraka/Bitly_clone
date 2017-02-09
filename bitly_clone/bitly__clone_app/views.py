@@ -7,28 +7,25 @@ from .forms import UrlShortForm
 
 
 def home(request):
-    urls_data=UrlShort.objects.order_by('-nb_access')
+    urls_data=UrlShort.objects.order_by('-nb_access')[:10]
+
     return render(request,'bitly__clone_app/home.html',locals())
 
 
 
 def add_new_url(request):
-    """
+
     if request.method == "POST":
         my_form=UrlShortForm(request.POST)
         if my_form.is_valid():
             my_form.save()
             return redirect(home)
+        else:
+            print my_form
     else:
         my_form=UrlShortForm()
-    """
 
-    form=UrlShortForm(request.POST or None)
-
-
-
-
-    return render(request,'bitly__clone_app/new.html',locals())
+    return render(request,'bitly__clone_app/new.html',{'form': my_form})
 
 
 def redirection(request,url_code):

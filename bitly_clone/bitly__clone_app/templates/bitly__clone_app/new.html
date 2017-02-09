@@ -5,33 +5,36 @@
         {% endblock %}
 </title>
 
-
 {% block content %}
 
-
-
-<div class="view hm-red">
-<div class="full-bg-img flex-center">
+<div class="view hm-black-strong">
+<div class="mask pattern-1 flex-center">
 <div class="container">
     <!--Form with header-->
+
 <div class="card theform">
     <div class="card-block">
         <!--Header-->
-        <div class="form-header red-gradient myheader">
+        <div class="form-header success-color-dark myheader">
             <h3><i class="fa fa-user"></i> Add new Url:</h3>
         </div>
-<form method="post" action="{% url 'add new url' %}" enctype="application/x-www-form-urlencoded">
+
+<form  action="{% url 'add new url' %}" method="post" enctype="application/x-www-form-urlencoded">
     {% csrf_token %}
-        <!--Body-->
+
+        <!--Body--->
         <div class="md-form">
+
             <i class="fa fa-link prefix"></i>
-            <input type="text" id="form3" class="form-control" name="the_url">
+            <input type="text" id="form3" class="form-control" name="user_url">
             <label for="form3">Your Url</label>
+            {{ form.user_url.errors }}
         </div>
         <div class="md-form">
             <i class="fa fa-user prefix"></i>
-            <input type="text" id="form2" class="form-control" name="the_nickname">
+            <input type="text" id="form2" class="form-control" name="nike_name">
             <label for="form2">Your nickname</label>
+           {{ form.nike_name.errors }}
         </div>
 
       <div class="text-center">
