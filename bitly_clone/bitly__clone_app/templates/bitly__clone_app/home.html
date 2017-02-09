@@ -1,6 +1,61 @@
-{%extends 'bitly__clone_app/base.html'%}
+{% extends 'bitly__clone_app/base.html'%}
 <title>
         {% block title %}
-        Welcome
+        Welecome
         {% endblock %}
 </title>
+
+{% block content %}
+
+<!--Navigation & Intro-->
+<header>
+    <!--Mask-->
+    <div class="view hm-blue-light">
+        <div class="full-bg-img flex-center">
+            <div class="container">
+                <div class="row" id="home">
+                <div class="col-md-10 col-md-offset-2 text-center">
+                    <p class="text-white wow fadeInLeft" style="font-size: 50px" data-wow-delay="0.4s">THE LINK KNOWS ALL. SO CAN YOU.</p>
+                    <p class="text-white wow fadeInLeft"style="font-size: 20px" data-wow-delay="0.4s">Measure your links with Bitly, the world's leading link management platform.</p>
+                      <hr class="hr-light">
+                    <a class="btn btn-danger btn-lg wow fadeInRight" data-wow-delay="0.7s">Short my URL</a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <div class="container">
+    <div style="margin: 40px">
+    <h1 class="h1-responsive red-text">Last top 10 urls :</h1>
+
+    </div>
+    <!--/.Mask-->
+           <table class="table table-success">
+          <thead class="blue white-text">
+            <tr>
+              <th>Number</th>
+              <th>Url</th>
+              <th>url shorten</th>
+              <th>number of access</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+
+
+
+          </tbody>
+        </table>
+    </div>
+
+
+
+</header>
+<!--/Navigation & Intro-->
+
+{% endblock %}
