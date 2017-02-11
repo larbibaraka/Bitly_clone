@@ -2,8 +2,12 @@ from .models import UrlShort
 from django.shortcuts import render,get_object_or_404,get_list_or_404,Http404,redirect,HttpResponse
 from .forms import UrlShortForm
 
-# Create your views here.
+# CRUD IMPORTS
 
+from django.views.generic import CreateView
+from django.core.urlresolvers import reverse_lazy
+
+# Create your views here.
 
 
 def home(request):
@@ -21,7 +25,7 @@ def add_new_url(request):
             my_form.save()
             return redirect(home)
         else:
-            print my_form
+            print (my_form)
     else:
         my_form=UrlShortForm()
 
@@ -37,5 +41,11 @@ def redirection(request,url_code):
     return redirect(bitly_clone.user_url, permanent=True)
 
 
+
+class CreateUrl(CreateView):
+    model = UrlShort
+    template_name = "bitly__clone_app/new.html"
+    form_class = UrlShortForm
+    success_url = reverse_lazy('index of home')#you give the name of the url
 
 

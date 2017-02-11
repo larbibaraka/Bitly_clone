@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 import random
 import string
 
+
 from django.db import models
 
 # Create your models here.
@@ -27,6 +28,7 @@ class UrlShort(models.Model):
 
 
     def __unicode__(self):
+        from appdirs import unicode
         return unicode(self.user_url)
 
 
@@ -36,6 +38,10 @@ class UrlShort(models.Model):
         if self.pk is None:
             self.url_code=generate(6)
         super(UrlShort, self).save(*args,**kwargs)
+
+    class Meta:
+        ordering:('-nb_access')[:10]
+
 
 
 
